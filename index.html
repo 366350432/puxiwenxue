@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+    <header>
+        <div class="login">
+          <a href="#">注册</a> <a href="#">登录</a>
+        </div>
+        <div class="welcome">
+                欢迎回来<span>xx</span>
+        </div>
+    </header>
+
+    <main>
+        <div class="logo">
+            <img src="./image/logo.png" alt="">
+        </div>
+        <div class="search">
+            <input type="text" name="inp" placeholder="请输入搜索的内容"> 
+            <button class="btn">点击搜索</button>
+        </div>
+    </main>
+
+    <footer>
+        
+          <a href="javascript:void(0)" onclick="js_method()" class="bot_nav">
+            <img src="./image/qikan.png" alt=""> 
+            <p>期刊频道</p>
+         </a>
+         <a href="javascript:void(0)" class="bot_nav">
+            <img src="./image/shoucang.png" alt=""> 
+            <p>订阅收藏</p>
+        </a>
+        <a href="javascript:void(0)" class="bot_nav">
+             <img src="./image/guanyu.png" alt=""> 
+             <p>关于我们</p>
+        </a>
+         <a href="javascript:void(0)" onclick="window.open('http://www.baidu.com','_self');" target="_blank" class="bot_nav">
+            <img src="./image/lianxi.png" alt=""> 
+            <p>联系我们</p>
+        </a>
+    </footer>
+    <script src="./js/jquery-3.3.1.js"></script>
+    <script>
+        function js_method(){
+            return false;
+        }
+        $(".btn").click(function(){
+            var searchText=$("input[name='inp']").val()
+            console.log(searchText)
+            var searchUrl = encodeURI("search.html?searchText=" + searchText+"upwd="+"123"); //使用encodeURI编码
+            location.href = searchUrl;
+        })
+    </script>
+</body>
+</html>
