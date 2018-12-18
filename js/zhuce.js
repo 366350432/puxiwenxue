@@ -122,13 +122,13 @@ $('#pass2').blur(function(){
 //按钮提交
 $('#zcbtn').click(function(){
     if(username && phoneId && passwdIsOK &&confirmpwdIsOK ==true){
-        let uname=;
-        let phone=;
-        let 
+        let uname=$('#uname').val();
+        let phone=$("#tl").val();
+        let upwd=$("#pass").val();
         $.ajax({
             url:"",
             type:'post',
-            data:{},
+            data:{uname:uname,phone:phone,upwd:upwd},
             dataType:'josn',
             contentType: 'application/json;charset=UTF-8',
             success: function (data){
