@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>注册</title>
     <link rel="stylesheet" href="./css/reset.css">
@@ -29,8 +29,6 @@
                         <li>密码</li>
                         <li>密码强度</li>
                         <li>确认密码</li>
-                        <li>密码提示问题</li>
-                        <li>密码提示问题</li>
                     </ul>
                     <ul class="inner-text-input">
                         <li>
@@ -53,20 +51,7 @@
                             </div>
                         </li>
                         <li>
-                            <input type="password" name="upwd2"> 
-                        </li>
-                        <li> 
-                            <select name="idCard">
-                                <option selected="selected">请选择密码提示问题</option>
-                                <option value="mname">母亲的名字?</option>
-                                <option value="fname">父亲的姓名?</option>
-                                <option value="qz">配偶姓名?</option>
-                                <option value="xiaoxue">小学学校名称?</option>
-                                <option value="zdy">自定义</option>
-                            </select>
-                        </li>
-                        <li>
-                            <input type="text" name="upwd2">
+                            <input id="pass2" type="password" name="upwd2"> 
                         </li>
                     </ul>
                     <ul class="inner-text-span">
@@ -84,10 +69,10 @@
                         </li>
                         <li><br/></li>
                         <li>
-                            <span>请再次输入密码</span>
+                            <span id="pass3">请再次输入密码</span>
                         </li>
-                       
                     </ul>
+                    <button class="zcbtn" id="zcbtn" name="zcbtn">立即注册</button>
                 </div>
             </div>
         </div>
