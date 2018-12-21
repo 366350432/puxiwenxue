@@ -1,6 +1,8 @@
 ul{
+    margin:0;
+    padding:0;
     list-style:none;
-    text-align: left;
+    text-align: center;
 }
 .da-bg{
     position: relative;
@@ -39,8 +41,8 @@ ul{
     font-weight: 400;
     color: rgba(21,21,21,1);
     line-height: 67px;
-    margin-top: 4%;
-    margin-bottom: 7%;
+    margin-top: 44px;
+    margin-bottom: -27px;
     border-bottom: 1px solid #ddd;
 }
 
