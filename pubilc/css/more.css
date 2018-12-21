@@ -1,0 +1,59 @@
+ul{
+    list-style:none;
+    text-align: left;
+}
+.da-bg{
+    position: relative;
+    width: 100%;
+    background-color:#F3F3F3;
+}
+.first-nav{
+    position: absolute;
+    top:90%;
+    right: 0%;
+    width:100% !important;
+    text-align: center !important;
+    margin:0 auto;
+}
+.bg{
+    margin:0 auto;
+    width:1130px;
+    height:1245px;
+    background:rgba(255,255,255,1);
+    border:1px solid rgba(230,230,230,1);
+}
+.text{
+    top: 7%;
+    left: 18%;
+    border: 1px solid red;
+    width: 65%;
+    height: 90%;
+    margin: 0 auto;
+    text-align:left;
+    position: absolute;
+}
+/*文本*/
+.text ul li{
+    font-size: 22px;
+    font-family: MicrosoftYaHei;
+    font-weight: 400;
+    color: rgba(21,21,21,1);
+    line-height: 67px;
+    margin-top: 4%;
+    margin-bottom: 7%;
+    border-bottom: 1px solid #ddd;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
