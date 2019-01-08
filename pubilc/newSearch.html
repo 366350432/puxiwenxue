@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>搜索结果</title>
+    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+    <script src="./js/jquery-3.3.1.js"></script>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/newSearch.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header id="header"></header>
+    <div class="container" id="app">
+        <div class="row clearfix">
+            <!-- 左边 -->
+            <div class="col-lg-2 col-md-2 col-left">
+                <div class="time-first" v-for="(left,index) in left" :key="index">
+                    <ul>
+                        <li>
+                            <span class="span-title">{{left.title}}</span>
+                            <span></span>
+                        </li>
+                        <li>
+                            <span>{{left.year1}}</span>
+                            <span class="span-Second">(1.2万)</span>
+                        </li>
+                        <!-- <li>
+                            <span>2017以来</span>
+                            <span class="span-Second">(9.3万)</span>
+                        </li>
+                        <li>
+                            <span>2016以来</span>
+                            <span class="span-Second">(19.3万)</span>
+                        </li> -->
+                        <li>
+                            <input type="text" placeholder="年">-
+                            <input type="text" placeholder="年">
+                            <button type="button" class="btn btn-default">确认</button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="time-second">
+                    <ul>
+                        <li>
+                            <span class="span-title">领域</span>
+                            <span></span>
+                        </li>
+                        <li>
+                            <span>数学</span>
+                            <span class="span-Second">(1.2万)</span>
+                        </li>
+                        <li>
+                            <span>教育学</span>
+                            <span class="span-Second">(9.3万)</span>
+                        </li>
+                        <li>
+                            <span>计算机科学与...</span>
+                            <span class="span-Second">(19.3万)</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- /左边 -->
+            <!-- 右边内容 -->
+            <div class="col-lg-10 col-md-10 col-right">
+                <span>找到约......条相关结果</span>
+                <div class="right-text" v-for="(item,index) in neirong" :key="index">
+                    <h3 class="right-text-title">
+                        {{item.title}}
+                    </h3>
+                    <p class="right-text-inner">
+                        {{item.text}}
+                    </p>
+                    <div class="right-text-btn">
+                        <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-heart"></span>收藏</button>
+                        <button type="button" class="btn btn-default"><span>&lt;&nbsp;&gt;</span>引用</button>
+                        <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-folder-close"></span>批量引用</button>
+                    </div>
+                </div>
+                
+            </div>
+            <!-- /右边内容 -->
+           
+        </div>
+         <!-- 分页 -->
+         <div class="page-bar">
+                <ul>
+                    <li v-if="cur>1">
+                        <a @click="cur=1,pageClick()">首页</a>
+                    </li>
+                    <li v-if="cur>1">
+                        <a @click="cur--,pageClick()">上一页</a>
+                    </li>
+                    <li v-if="cur==1">
+                        <a class="banclick">上一页</a>
+                    </li>
+                    <li v-for="index in indexs"  v-bind:class="{ 'active': cur == index}">
+                        <a @click="btnClick(index)">{{ index }}</a>
+                    </li>
+                    <li v-if="cur!=all">
+                        <a @click="cur++,pageClick()">下一页</a>
+                    </li>
+                    <li v-if="cur == all">
+                        <a class="banclick">下一页</a>
+                    </li>
+                    <li v-if="cur>1">
+                            <a @click="cur=all,pageClick()">尾页</a>
+                        </li>
+                    <li>
+                        <a>共<i>{{all}}</i>页</a>
+                    </li>
+                </ul>
+        </div>
+        <!-- /分页 -->
+    </div>
+    <!-- <script>
+        /*导入头部和尾部*/
+        $(document).ready(function(){
+            $("#header").load("./header.html");
+        });
+      </script> -->
+      <script>
+        var vm = new Vue({
+            el:"#app",
+            data:{
+                all: 100, //总页数
+                cur: 1,//当前页码
+                left:[
+                    {'title':'时间','year1':'2018以来','year2':'2017以来','year3':'2016以来','num1':'1.2万','num2':'1.9万','num3':'19.3万'},
+                    ],
+                neirong:[
+                    {'id':1,'title':'语文','text':'数学形态是一种非线性录播方法形态和差运算,既膨胀与腐蚀是数学形态学的基础,数学形态学已由二值形态,灰度形态学,软数学形态学,模糊形态学发涨到模糊软形态...'},
+                    {'id':2,'title':'数学形态学在图像处理中','text':'数学形态是一种非线性录播方法形态和差运算,既膨胀与腐蚀是数学形态学的基础,数学形态学已由二值形态,灰度形态学,软数学形态学,模糊形态学发涨到模糊软形态...'},
+                    {'id':3,'title':'数学','text':'数学形态是一种非线性录播方法形态和差运算,既膨胀与腐蚀是数学形态学的基础,数学形态学已由二值形态,灰度形态学,软数学形态学,模糊形态学发涨到模糊软形态...','btn1':'收藏','btn2':'引用','btn3':'批量引用'},
+                    {'id':4,'title':'数学形态','text':'数学形态是一种非线性录播方法形态和差运算,既膨胀与腐蚀是数学形态学的基础,数学形态学已由二值形态,灰度形态学,软数学形态学,模糊形态学发涨到模糊软形态...'},
+                    {'id':4,'title':'学在图像处理中的应用进展','text':'数学形态是一种非线性录播方法形态和差运算,既膨胀与腐蚀是数学形态学的基础,数学形态学已由二值形态,灰度形态学,软数学形态学,模糊形态学发涨到模糊软形态...'},
+                    {'id':5,'title':'英语','text':'数学形态是一种非线性录播方法形态和差运算,既膨胀与腐蚀是数学形态学的基础,数学形态学已由二值形态,灰度形态学,软数学形态学,模糊形态学发涨到模糊软形态...'}
+                ],
+            },
+            methods: {
+                btnClick: function(data){//页码点击事件
+                    if(data != this.cur){
+                        this.cur = data 
+                    }
+                },
+                pageClick: function(){
+                    console.log('现在在'+this.cur+'页');
+                }
+            },
+            computed: {
+                indexs: function(){
+                    var left = 1;
+                    var right = this.all;
+                    var ar = [];
+                    if(this.all>= 5){
+                        if(this.cur > 3 && this.cur < this.all-2){
+                                left = this.cur - 2
+                                right = this.cur + 2
+                        }else{
+                            if(this.cur<=3){
+                                left = 1
+                                right = 5
+                            }else{
+                                right = this.all
+                                left = this.all -4
+                            }
+                        }
+                    }
+                    while (left <= right){
+                        ar.push(left)
+                        left ++
+                    }
+                    return ar
+                } 
+            },
+            watch: {
+                cur: function(oldValue , newValue){
+                    console.log(arguments);
+                }
+            }
+        })
+      </script>
+</body>
+</html>

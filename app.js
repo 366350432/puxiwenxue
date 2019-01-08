@@ -8,7 +8,7 @@ const cors = require('cors');//加载跨域模块
 
 //1.使用express构建web服务器
 var app = express();
-app.listen(3000,()=>{
+app.listen(3001,()=>{
   console.log("创建成功")
 });
 
@@ -19,7 +19,7 @@ app.use(cors({
 }))
 
 //2.托管静态资源
-app.use(express.static('./pubilc'));
+app.use(express.static(__dirname+'/pubilc'));
 
 //3.配置body-parser
 app.use(bodyParser.urlencoded({

@@ -1,0 +1,164 @@
+#app{
+    margin:0 auto;
+}
+/*banner*/
+.banner{
+    width: 100%;
+    height:auto;
+}
+.banner img{
+    width:100%;
+}
+
+.top{
+    clear: both;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    margin-left:-639px;
+    width: 1278px;
+    height: 370px;
+}
+.top div{
+    position: absolute;
+    top: 12%;
+    left: 10%;
+}
+.top p:first-child{
+    font-size:48px;
+}
+.top img{
+   width:100%;  
+}
+
+div.middle1{
+    width:100%;
+    margin:0 auto;
+    position: absolute;
+    top:80%;
+}
+div.middle1 div{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width:1360px;
+    margin:0 auto;
+}
+div.middle1 div p{
+    margin-top:6%;
+    font-size:22px;
+    width:676px;
+    height:347px;
+}
+div.middle1 div img{
+    width:507px;
+    height:457px;
+}
+div.middle1 span{
+    position: relative;
+    margin-bottom:100px;
+    display:block;
+    width:254px;
+    height:54px;
+    font-size:57px;
+    margin: 80px auto;
+}
+div.middle1 h1{
+    overflow: hidden;
+    position: absolute;
+    top: 116%;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+div.middle1 h1 img{
+    width:100%;
+}
+div.middle1 h1 p{
+    text-align: center;
+    position: absolute;
+    /* margin:0 auto; */
+    width: 100%;
+    color:#fff;
+}
+div.middle1 h1 p:first-child{
+    font-size:77px;
+    letter-spacing:20px;
+    top: 30%;
+    /* margin-bottom:20px; */
+}
+.middle1 h1 p:nth-child(2){
+    letter-spacing:8px;
+    top:55%;
+}
+
+.card{
+    top: 218%;
+    position: absolute;
+    flex-direction: column;
+    display: flex;
+    width: 80%;
+    height: auto;
+   
+}
+.card div{
+    position: relative;
+    left: 13%;
+    width:100%;
+    margin:0 auto;
+    justify-content: center;
+    display:flex;
+    flex-direction: row;
+}
+.card div p{
+    width:33.3333%;
+    background: #f3f2f2;
+    text-align:center;
+    line-height: 200px;
+}
+.card div p img{
+    width:100%;
+}
+
+@media(max-width:767px){
+    div.middle1 h1 p:first-child{
+        font-size:30px;
+    }
+    .middle1 h1 p:nth-child(2){
+        font-size:12px;
+    }
+}
+@media (min-width:768px) and (max-width:992px){
+    div.middle1 h1 p:first-child{
+        font-size:40px;
+    }
+    .middle1 h1 p:nth-child(2){
+        font-size:18px;
+    }
+}
+@media (min-width:993px) and (max-width:1199px){
+    div.middle1 h1 p:first-child{
+        font-size:50px;
+    }
+    .middle1 h1 p:nth-child(2){
+        font-size:21px;
+    }
+}
+@media (min-width:1200px){
+    div.middle1 h1 p:first-child{
+        font-size:75px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
